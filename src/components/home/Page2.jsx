@@ -25,7 +25,7 @@ const Page2 = ({ setActive, inputs, setInputs }) => {
   return (
     <div className="mt-[30px]">
       <h3 className="text-center lg:text-[26px] text-[22px] font-semibold">
-        What's your preferred intake?
+        What&apos;s your preferred intake?
       </h3>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-[30px]">
@@ -40,7 +40,7 @@ const Page2 = ({ setActive, inputs, setInputs }) => {
       </div>
 
       <h3 className="text-center lg:text-[26px] text-[22px] font-semibold mt-10">
-        What's do your wish to pursue?
+        What&apos;s do your wish to pursue?
       </h3>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-[30px]">

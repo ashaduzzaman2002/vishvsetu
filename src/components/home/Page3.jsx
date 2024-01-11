@@ -24,7 +24,7 @@ const Page3 = ({ setActive }) => {
   return (
     <div className="mt-[30px]">
       <h3 className="text-center lg:text-[26px] text-[22px] font-semibold">
-        What's your highest level of education?
+        What&apos;s your highest level of education?
       </h3>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-[30px]">
