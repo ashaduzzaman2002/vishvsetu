@@ -3,7 +3,21 @@ import React from "react";
 import Button from "../button/Button";
 import { ButtonNextArrow, ButtonPrevArrow } from "@/assets/svg/Icon";
 
-const Country = () => {
+const Country = ({ setActive, inputs, setInputs }) => {
+  const handleClick = () => {
+    setActive(1);
+    console.log("object");
+  };
+
+  const hanleCardClick = (name) => {
+    setInputs({
+      ...inputs,
+      choosen_country: name,
+    });
+
+    setActive(1);
+  };
+
   return (
     <div className="mt-[30px]">
       <h3 className="text-center lg:text-[26px] text-[22px] font-semibold">
@@ -12,18 +26,23 @@ const Country = () => {
 
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 mt-[30px]">
         {countries?.map((item, i) => (
-          <Card data={item} key={i} />
+          <Card
+            hanleCardClick={hanleCardClick}
+            isActive={item?.name === inputs?.choosen_country}
+            data={item}
+            key={i}
+          />
         ))}
       </div>
 
       <div className="mt-10 flex justify-center">
-        <Button disabled={false} className="">
+        <Button
+          onClick={handleClick}
+          disabled={inputs?.choosen_country ? false : true}
+          className=""
+        >
           Next <ButtonNextArrow />
         </Button>
-
-        {/* <Button className="bg-[#eceffa] !text-[#4161C8]">
-          <ButtonPrevArrow /> Previous
-        </Button> */}
       </div>
     </div>
   );
@@ -31,18 +50,29 @@ const Country = () => {
 
 export default Country;
 
-const Card = ({ data }) => (
+const Card = ({ data, isActive, hanleCardClick }) => (
   <div
-    className="bg-[#fff] flex h-[78px] rounded-[10px] justify-start cursor-pointer p-[10px] items-center gap-[15px]"
+    onClick={() => hanleCardClick(data.name)}
+    className={`${
+      isActive ? "bg-[#4161C8]" : "bg-[#fff]"
+    } flex h-[78px] rounded-[10px] justify-start cursor-pointer p-[10px] items-center gap-[15px]`}
     style={{ boxShadow: "0px 0px 13px 0px rgba(203, 203, 203, 0.25)" }}
   >
     <div
-      className="bg-[#f5f5fe] h-full aspect-square rounded-[10px] flex items-center justify-center"
+      className={`${
+        isActive ? "bg-white" : "bg-[#f5f5fe]"
+      } h-full aspect-square rounded-[10px] flex items-center justify-center`}
       style={{ boxShadow: "0px 0px 13px 0px rgba(203, 203, 203, 0.25)" }}
     >
       {data?.icon}
     </div>
 
-    <p className={`text-[#696969] text-xl font-medium`}>{data?.name}</p>
+    <p
+      className={`${
+        isActive ? "text-white" : "text-[#696969]"
+      } text-xl font-medium`}
+    >
+      {data?.name}
+    </p>
   </div>
 );

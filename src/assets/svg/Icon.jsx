@@ -535,3 +535,30 @@ export const ButtonPrevArrow = () => (
     />
   </svg>
 );
+
+export const ActiveDot = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+  >
+    <circle cx="4" cy="4" r="4" fill="#009D23" />
+  </svg>
+);
+
+export const DropdownArrow = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="25"
+    height="25"
+    viewBox="0 0 25 25"
+    fill="none"
+  >
+    <path
+      d="M2.71018 8.69141L11.7727 17.7588C12.1731 18.1592 12.8225 18.1592 13.2229 17.7588L22.2903 8.69141C22.9348 8.04688 22.4807 6.93848 21.5627 6.93848L3.43284 6.93848C2.51975 6.93848 2.06077 8.04687 2.71018 8.69141Z"
+      fill="black"
+    />
+  </svg>
+);

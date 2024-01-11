@@ -7,3 +7,24 @@
   width: 90%;
   margin: auto;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.css-1m7vd12-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+:focus-visible {
+  outline: none !important;
+}
