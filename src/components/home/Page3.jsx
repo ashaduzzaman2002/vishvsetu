@@ -39,10 +39,10 @@ const Page3 = ({ setActive, inputs, setInputs }) => {
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-[30px]">
         {education?.map((item, i) => (
           <Card
+          key={i}
             onClick={hanldeClickEducation}
             isActive={item?.label === inputs?.education}
             data={item}
-            key={i}
           />
         ))}
       </div>
@@ -109,6 +109,7 @@ const Page3 = ({ setActive, inputs, setInputs }) => {
 
             {yearOfExpectation?.map((item, i) => (
               <MenuItem
+              key={i}
                 value={item.label}
                 style={{ border: "none", fontSize: 20, fontWeight: "500" }}
               >
@@ -126,10 +127,10 @@ const Page3 = ({ setActive, inputs, setInputs }) => {
       <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 mt-[30px]">
         {passport?.map((item, i) => (
           <Card1
+          key={i}
             onClick={hanldeClickPassport}
             isActive={item?.label === inputs?.passport}
             data={item}
-            key={i}
           />
         ))}
       </div>

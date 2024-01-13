@@ -2,15 +2,10 @@
 import { education, examStatus, passport } from "@/data";
 import React from "react";
 import Button from "../button/Button";
-import {
-  ButtonNextArrow,
-  ButtonPrevArrow,
-} from "@/assets/svg/Icon";
+import { ButtonNextArrow, ButtonPrevArrow } from "@/assets/svg/Icon";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
 const Page4 = ({ setActive, inputs, setInputs }) => {
-
-
   const handleClick = () => {
     setActive(4);
     console.log("object");
@@ -26,9 +21,12 @@ const Page4 = ({ setActive, inputs, setInputs }) => {
         <FormControl fullWidth>
           <Select
             value={inputs?.exam_status || "a"}
-            onChange={(e) => setInputs({
-              ...inputs, exam_status: e.target.value
-            })}
+            onChange={(e) =>
+              setInputs({
+                ...inputs,
+                exam_status: e.target.value,
+              })
+            }
             sx={{
               backgroundColor: "#fff",
               borderColor: "transparent",
@@ -51,6 +49,7 @@ const Page4 = ({ setActive, inputs, setInputs }) => {
 
             {examStatus?.map((item, i) => (
               <MenuItem
+                key={i}
                 value={item.label}
                 style={{ border: "none", fontSize: 20, fontWeight: "500" }}
               >
