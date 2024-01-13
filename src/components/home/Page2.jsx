@@ -76,13 +76,13 @@ const Card = ({ data, isActive, onClick }) => (
     onClick={() => onClick(data?.date)}
     className={`${
       isActive ? "bg-[#4161C8]" : "bg-[#fff]"
-    } flex h-[78px] rounded-[10px] justify-between cursor-pointer p-[20px] items-center gap-[15px]`}
+    } flex h-[65px] lg:h-[70px]  2xl:h-[78px] rounded-[10px] justify-between cursor-pointer p-[20px] items-center gap-[15px]`}
     style={{ boxShadow: "0px 0px 17px 0px rgba(203, 203, 203, 0.45)" }}
   >
     <p
       className={`${
         isActive ? "text-white" : "text-[#696969]"
-      } text-xl font-medium`}
+      } lg:text-xl text-base font-medium`}
     >
       {data?.date}
     </p>
@@ -105,11 +105,11 @@ const Card1 = ({ data, onClick, isActive }) => (
     onClick={() => onClick(data?.label)}
     className={`${
       isActive ? "bg-[#4161C8]" : "bg-[#fff]"
-    } flex h-[78px] rounded-[10px] justify-between cursor-pointer p-[20px] items-center gap-[15px]`}
+    } flex h-[65px] lg:h-[70px]  2xl:h-[78px] rounded-[10px] justify-between cursor-pointer p-[20px] items-center gap-[15px]`}
     style={{ boxShadow: "0px 0px 17px 0px rgba(203, 203, 203, 0.45)" }}
   >
     <p className={`${
         isActive ? "text-white" : "text-[#696969]"
-      } text-xl font-medium`}>{data?.label}</p>
+      } lg:text-xl text-base font-medium`}>{data?.label}</p>
   </div>
 );

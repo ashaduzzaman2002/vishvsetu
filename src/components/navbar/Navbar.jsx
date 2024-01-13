@@ -45,7 +45,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="lg:flex gap-[30px] items-center hidden">
+        <ul className="xl:flex 2xl:gap-[30px] gap-[15px] items-center hidden">
           {navLinks?.map((item, i) => (
             <li key={i}>
               <Link
@@ -63,16 +63,16 @@ const Navbar = () => {
         </ul>
 
         <div className="flex gap-5">
-          <button className="hidden lg:block border-[1px] border-[#4161C8] py-3 px-[30px] text-[#4161C8] font-bold rounded-3xl">
+          {/* <button className="hidden xl:block border-[1px] border-[#4161C8] py-3 2xl:px-[30px] lg:px-[20px] text-[#4161C8] font-bold lg:text-lg rounded-2xl 2xl:rounded-3xl">
             Get Appointment
-          </button>
+          </button> */}
 
-          <button className="lg:flex hidden gap-2 items-center">
+          <button className="xl:flex hidden gap-2 items-center">
             <Flag />
             <DownArrow />
           </button>
 
-          <button onClick={toggleDrawer(true)} className="lg:hidden">
+          <button onClick={toggleDrawer(true)} className="xl:hidden">
             <MenuIcon />
           </button>
         </div>

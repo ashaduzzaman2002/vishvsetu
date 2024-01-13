@@ -6,7 +6,8 @@ import Page2 from "@/components/home/Page2";
 import Page3 from "@/components/home/Page3";
 import Page4 from "@/components/home/Page4";
 import Page5 from "@/components/home/Page5";
-import { Step, StepLabel, Stepper } from "@mui/material";
+import SuccessModal from "@/components/home/SuccessModal";
+import { Button, Step, StepLabel, Stepper } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
 const steps = ["1", "2", "3", "4", "5"];
@@ -14,8 +15,20 @@ const steps = ["1", "2", "3", "4", "5"];
 const Home = () => {
   const [active, setActive] = useState(0);
   const [inputs, setInputs] = useState({});
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
   return (
     <div>
+      {/* Success Modal */}
+      <SuccessModal open={modalOpen} handleClose={handleModalClose} />
       <div className="container pb-[50px] pt-[100px] grid lg:grid-cols-2 grid-cols-1 relative">
         <div className="h-full relative z-10">
           <Heading
@@ -31,6 +44,7 @@ const Home = () => {
                 : "Just one last step! Provide your details to start your study abroad journey"
             }
           />
+
           <Stepper activeStep={active} alternativeLabel>
             {steps.map((label) => (
               <Step key={label}>
@@ -67,6 +81,7 @@ const Home = () => {
               inputs={inputs}
               setInputs={setInputs}
               setActive={setActive}
+              handleModalOpen={handleModalOpen}
             />
           )}
         </div>

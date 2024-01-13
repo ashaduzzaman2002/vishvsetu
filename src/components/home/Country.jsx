@@ -24,7 +24,7 @@ const Country = ({ setActive, inputs, setInputs }) => {
         Choose your country
       </h3>
 
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 mt-[30px]">
+      <div className="grid md:grid-cols-3 lg:grid-cols-2  xl:grid-cols-3 grid-cols-2 lg:gap-5 md:gap-4 gap-3 mt-[30px]">
         {countries?.map((item, i) => (
           <Card
             hanleCardClick={hanleCardClick}
@@ -55,7 +55,7 @@ const Card = ({ data, isActive, hanleCardClick }) => (
     onClick={() => hanleCardClick(data.name)}
     className={`${
       isActive ? "bg-[#4161C8]" : "bg-[#fff]"
-    } flex h-[78px] rounded-[10px] justify-start cursor-pointer p-[10px] items-center gap-[15px]`}
+    } flex h-[65px] lg:h-[70px]  2xl:h-[78px] rounded-[10px] justify-start cursor-pointer p-[10px] items-center gap-[15px]`}
     style={{ boxShadow: "0px 0px 13px 0px rgba(203, 203, 203, 0.25)" }}
   >
     <div
@@ -70,7 +70,7 @@ const Card = ({ data, isActive, hanleCardClick }) => (
     <p
       className={`${
         isActive ? "text-white" : "text-[#696969]"
-      } text-xl font-medium`}
+      } lg:text-xl text-base font-medium`}
     >
       {data?.name}
     </p>

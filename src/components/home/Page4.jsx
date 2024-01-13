@@ -1,20 +1,15 @@
 "use client";
-import { education, passport } from "@/data";
+import { education, examStatus, passport } from "@/data";
 import React from "react";
 import Button from "../button/Button";
 import {
   ButtonNextArrow,
   ButtonPrevArrow,
-  DropdownArrow,
 } from "@/assets/svg/Icon";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, MenuItem, Select } from "@mui/material";
 
-const Page4 = ({setActive}) => {
-  const [age, setAge] = React.useState(10);
+const Page4 = ({ setActive, inputs, setInputs }) => {
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
 
   const handleClick = () => {
     setActive(4);
@@ -28,51 +23,57 @@ const Page4 = ({setActive}) => {
       </h3>
 
       <div className="mt-[30px]">
-        
-
         <FormControl fullWidth>
           <Select
-            value={age}
-            onChange={handleChange}
+            value={inputs?.exam_status || "a"}
+            onChange={(e) => setInputs({
+              ...inputs, exam_status: e.target.value
+            })}
             sx={{
               backgroundColor: "#fff",
               borderColor: "transparent",
               fontSize: 20,
               fontWeight: "500",
               boxShadow: "0px 0px 17px 0px rgba(203, 203, 203, 0.45)",
-              height: 78,
-              padding: '20px'
+              height: "65px", // Default height
+              padding: "20px",
+              "@media (min-width: 1024px)": {
+                height: "70px", // Responsive height for lg breakpoint
+              },
+              "@media (min-width: 1280px)": {
+                height: "78px", // Responsive height for 2xl breakpoint
+              },
             }}
-
           >
-            <MenuItem
-              value={10}
-              style={{ border: "none", fontSize: 20, fontWeight: "500" }}
-            >
-              Ten
+            <MenuItem value="a" disabled>
+              Select Exam Status
             </MenuItem>
-            <MenuItem
-              style={{ border: "none", fontSize: 20, fontWeight: "500" }}
-              value={20}
-            >
-              Twenty
-            </MenuItem>
-            <MenuItem
-              style={{ border: "none", fontSize: 20, fontWeight: "500" }}
-              value={30}
-            >
-              Thirty
-            </MenuItem>
+
+            {examStatus?.map((item, i) => (
+              <MenuItem
+                value={item.label}
+                style={{ border: "none", fontSize: 20, fontWeight: "500" }}
+              >
+                {item.label}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </div>
 
       <div className="mt-10 flex justify-center gap-5">
-        <Button onClick={() => setActive(2)} className="bg-[#eceffa] !text-[#4161C8]">
+        <Button
+          onClick={() => setActive(2)}
+          className="bg-[#eceffa] !text-[#4161C8]"
+        >
           <ButtonPrevArrow /> Previous
         </Button>
 
-        <Button onClick={handleClick} disabled={false} className="">
+        <Button
+          onClick={handleClick}
+          disabled={inputs?.exam_status ? false : true}
+          className=""
+        >
           Next <ButtonNextArrow />
         </Button>
       </div>
