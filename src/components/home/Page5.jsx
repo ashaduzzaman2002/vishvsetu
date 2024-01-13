@@ -10,7 +10,7 @@ const Page5 = ({ setActive, inputs, setInputs, handleModalOpen }) => {
     try {
       setIsLoading(true);
       const { data } = await axios.post(
-        "http://vishvsetu.dinnre.com/submit-form",
+        "https://vishvsetu.dinnre.com/submit-form",
         inputs
       );
 
